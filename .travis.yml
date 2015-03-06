@@ -1,32 +1,20 @@
-# see http://about.travis-ci.org/docs/user/languages/php/ for more hints
 language: php
-
-# list any PHP version you want to test against
 php:
-  # using major version aliases
-
-  # aliased to 5.2.17
-  - 5.2
-  # aliased to 5.3.29
-  - 5.3
-  # aliased to a recent 5.4.x version
-  - 5.4
-  # aliased to a recent 5.5.x version
-  - 5.5
-  # aliased to a recent 5.6.x version
-  - 5.6
-
-# optionally specify a list of environments, for example to test different RDBMS
+- 5.2
+- 5.3
+- 5.4
+- 5.5
+- 5.6
 env:
-  - DB=mysql
-
-# execute any number of scripts before the test run, custom env's are available as variables
-before_script:
-
-# omitting "script:" will default to phpunit
-# use the $DB env variable to determine the phpunit.xml to use
+- DB=mysql
+before_script: 
 script: phpunit --configuration phpunit.xml --coverage-text
-
-# configure notifications (email, IRC, campfire etc)
 notifications:
   hipchat: 7f688687a45908cc673458a0e8b968@Quoidautre
+deploy:
+  provider: heroku
+  api_key:
+    secure: dgld53Gp9qjoM9INfR8kJodOC5IgZ1KThh2YiyarLFpp8xxSVdNIDeP9sfAr/anOas9cg7gAYvMRZ1BpetpX3h2WRuAYk232cux0eDHOSAVnR50ANNaHwgWieUC5RYsIvS5kN2FGA8Po9dMNZMij9rQOsb9lFCm7DFO4mWOoGUU=
+  app: testing-travis-ci-deployment
+  on:
+    repo: quoidautre/testing
