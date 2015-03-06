@@ -22,7 +22,7 @@
         <div class="row">
 
           <div class="col-lg-12 col-md-11 col-sm-10">
-            <h1>Contactez nous !</h1>
+            <h1>Contactez nous, vite !!!</h1>
           </div>
 
         </div>
