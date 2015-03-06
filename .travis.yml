@@ -7,10 +7,11 @@ php:
 - 5.6
 env:
 - DB=mysql
-before_script: 
+before_script:
 script: phpunit --configuration phpunit.xml --coverage-text
 notifications:
   hipchat: 7f688687a45908cc673458a0e8b968@Quoidautre
+before_deploy: "echo 'ready to deploy ?'"
 deploy:
   provider: heroku
   api_key:
@@ -18,3 +19,4 @@ deploy:
   app: testing-travis-ci-deployment
   on:
     repo: quoidautre/testing
+after_deploy: "echo 'Deployment successfull !'"
